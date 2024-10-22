@@ -53,9 +53,6 @@ alias ll='lsd -l'
 alias la='lsd -a'
 alias cat='bat -pp'
 
-# PATH 설정
-export PATH="$HOME/.local/bin:$PATH"
-
 # fzf 설정
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 EOF
