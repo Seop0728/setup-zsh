@@ -23,9 +23,8 @@
 ## 🚀 설치 방법
 
 ```bash
-wget https://raw.githubusercontent.com/Seop0728/setup-zsh/main/setup-zsh.sh && chmod +x setup-zsh.sh && ./setup-zsh.sh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/Seop0728/setup-zsh/main/setup-zsh.sh)"
 ```
-
 
 ## 🛠️ 포함된 도구들
 
@@ -39,10 +38,10 @@ wget https://raw.githubusercontent.com/Seop0728/setup-zsh/main/setup-zsh.sh && c
 - docker: Docker 명령어 통합
 
 ### 추가 도구
-- **exa**: `ls` 명령어의 현대적인 대체제
-  - `ls`: exa
-  - `ll`: exa -l
-  - `la`: exa -a
+- **lsd**: `ls` 명령어의 현대적인 대체제
+  - `ls`: lsd
+  - `ll`: lsd -l
+  - `la`: lsd -a
 - **bat**: `cat` 명령어의 강화된 버전
   - 구문 강조
   - Git 통합
@@ -65,7 +64,7 @@ vim ~/.zshrc
 
 ## 📝 라이선스
 
-[라이선스 종류] - 자세한 내용은 [LICENSE](LICENSE) 파일을 참조하세요.
+[라이선스 종류] - 자세한 내용은 [LICENSE](https://opensource.org/license/mit) 파일을 참조하세요.
 
 ## 🙏 감사의 말
 
@@ -75,4 +74,4 @@ vim ~/.zshrc
 - [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 - [fzf](https://github.com/junegunn/fzf)
 - [bat](https://github.com/sharkdp/bat)
-- [exa](https://the.exa.website/)
+- [lsd](https://github.com/lsd-rs/lsd)
