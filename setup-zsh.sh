@@ -2,7 +2,15 @@
 
 # install packages
 sudo apt update
-sudo apt install -y zsh curl git fonts-powerline
+sudo apt install -y zsh curl git fonts-powerline unzip
+
+# Nerd Fonts(JetBrainsMono)
+mkdir -p ~/.local/share/fonts
+cd ~/.local/share/fonts
+curl -fLO https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+unzip JetBrainsMono.zip
+rm JetBrainsMono.zip
+fc-cache -fv
 
 # Oh My Zsh
 RUNZSH=no CHSH=no sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
@@ -14,7 +22,7 @@ sudo chsh -s $(which zsh) $USER
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
-# fzf 
+# fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 yes | ~/.fzf/install
 
@@ -23,27 +31,32 @@ sudo apt install -y bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
-# exa
-sudo apt install -y exa
+# lsd
+ARCH=$(uname -m)
+if [ "$ARCH" = "arm64" ]; then
+    curl -fsSL -o lsd.deb https://github.com/lsd-rs/lsd/releases/download/v1.1.5/lsd_1.1.5_arm64.deb
+elif [ "$ARCH" = "x86_64" ]; then
+    curl -fsSL -o lsd.deb https://github.com/lsd-rs/lsd/releases/download/v1.1.5/lsd_1.1.5_amd64.deb
+fi
+sudo dpkg -i lsd.deb
 
 # .zshrc
-cat << EOF > ~/.zshrc
-export ZSH="\$HOME/.oh-my-zsh"
+cat << 'EOF' > ~/.zshrc
+export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="agnoster"
 plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions fzf kubectl docker)
-source \$ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh
 
-# alias
-alias ls='exa'
-alias ll='exa -l'
-alias la='exa -a'
+# alias 설정
+alias ls='lsd'
+alias ll='lsd -l'
+alias la='lsd -a'
+alias cat='bat -pp'
 
-alias cat='bat'
+# PATH 설정
+export PATH="$HOME/.local/bin:$PATH"
 
-# PATH
-export PATH="\$HOME/.local/bin:\$PATH"
-
-# fzf
+# fzf 설정
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 EOF
 
