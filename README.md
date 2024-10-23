@@ -9,7 +9,7 @@
 - 구문 강조 (Syntax Highlighting)
 - 명령어 자동 완성 (Autosuggestions)
 - 퍼지 파인더 (fzf) 통합
-- 향상된 파일 탐색기 (exa)
+- 향상된 파일 탐색기 (lsd)
 - 향상된 cat 명령어 (bat)
 - Git 플러그인
 - Docker 플러그인
