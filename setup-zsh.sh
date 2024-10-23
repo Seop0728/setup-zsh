@@ -47,15 +47,18 @@ ZSH_THEME="agnoster"
 plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions fzf kubectl docker)
 source $ZSH/oh-my-zsh.sh
 
-# alias 설정
+# alias
 alias ls='lsd'
 alias ll='lsd -l'
 alias la='lsd -a'
 alias cat='bat -pp'
 
-# fzf 설정
+# fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 EOF
+
+# cd HOME
+cd ~
 
 # zsh Start
 echo 
