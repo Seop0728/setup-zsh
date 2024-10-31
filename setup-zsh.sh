@@ -2,7 +2,7 @@
 
 # install packages
 sudo apt update
-sudo apt install -y zsh curl git fonts-powerline unzip
+sudo apt install -y zsh curl git fonts-powerline unzip vim
 
 # Nerd Fonts(JetBrainsMono)
 mkdir -p ~/.local/share/fonts
@@ -52,9 +52,43 @@ alias ls='lsd'
 alias ll='lsd -l'
 alias la='lsd -a'
 alias cat='bat -pp'
+alias k='kubectl'
 
 # fzf
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# Language
+export LC_ALL=C.UTF-8
+EOF
+
+######
+# Vim
+
+mkdir -p ~/.vim/autoload ~/.vim/bundle && \
+curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
+
+git clone https://github.com/preservim/vim-indent-guides.git ~/.vim/bundle/vim-indent-guides
+
+# .vimrc
+cat << 'EOF' > ~/.vimrc
+" Enable Pathogen
+execute pathogen#infect()
+
+" Basic vim settings
+syntax on
+filetype plugin indent on
+
+" Indent Guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_auto_colors = 0
+
+highlight IndentGuidesOdd  guibg=#4e4e4e ctermbg=239
+highlight IndentGuidesEven guibg=#5c5c5c ctermbg=241
+
+" YAML
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab autoindent
 EOF
 
 # cd HOME
