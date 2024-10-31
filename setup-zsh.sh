@@ -43,6 +43,8 @@ sudo dpkg -i lsd.deb
 # .zshrc
 cat << 'EOF' > ~/.zshrc
 export ZSH="$HOME/.oh-my-zsh"
+export PATH=$PATH:$HOME/.local/bin
+
 ZSH_THEME="agnoster"
 plugins=(git colored-man-pages zsh-syntax-highlighting zsh-autosuggestions fzf kubectl docker)
 source $ZSH/oh-my-zsh.sh
