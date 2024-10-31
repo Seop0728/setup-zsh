@@ -1,12 +1,8 @@
 #!/bin/bash
 
 # install packages
-
-# enable "Pending kernel upgrade" message
-sed -i "s/#\$nrconf{kernelhints} = -1;/\$nrconf{kernelhints} = -1;/g" /etc/needrestart/needrestart.conf
-
-sudo apt update
-sudo apt install -y zsh curl git fonts-powerline unzip vim bat
+sudo DEBIAN_FRONTEND=noninteractive apt update
+sudo DEBIAN_FRONTEND=noninteractive apt install -y zsh curl git fonts-powerline unzip vim bat
 
 # Nerd Fonts(JetBrainsMono)
 mkdir -p ~/.local/share/fonts
