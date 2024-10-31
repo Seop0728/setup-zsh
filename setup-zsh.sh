@@ -1,8 +1,12 @@
 #!/bin/bash
 
 # install packages
+
+# enable "Pending kernel upgrade" message
+sed -i "s/#\$nrconf{kernelhints} = -1;/\$nrconf{kernelhints} = -1;/g" /etc/needrestart/needrestart.conf
+
 sudo apt update
-sudo apt install -y zsh curl git fonts-powerline unzip vim
+sudo apt install -y zsh curl git fonts-powerline unzip vim bat
 
 # Nerd Fonts(JetBrainsMono)
 mkdir -p ~/.local/share/fonts
@@ -27,7 +31,6 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 yes | ~/.fzf/install
 
 # bat
-sudo apt install -y bat
 mkdir -p ~/.local/bin
 ln -s /usr/bin/batcat ~/.local/bin/bat
 
