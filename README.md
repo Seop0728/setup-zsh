@@ -14,6 +14,7 @@
 - Git 플러그인
 - Docker 플러그인
 - Kubectl 플러그인
+- Vim 설정 및 플러그인
 
 ## 📋 사전 요구사항
 
@@ -49,22 +50,36 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/Seop0728/setup-zsh/main/se
 
 ## ⚙️ 커스터마이즈
 
-`.zshrc` 파일을 수정하여 추가적인 설정을 할 수 있습니다:
+### ZSH 설정
+
 ```bash
 vim ~/.zshrc
 ```
 
+### Vim 설정
+
+```bash
+vim ~/.vimrc
+```
+
+## 🎨 테마 및 폰트
+
+- ZSH 테마: Agnoster
+- 폰트: JetBrainsMono Nerd Font
+  - 강화된 아이콘 지원
+  - 완벽한 Powerline 심볼 통합
+
 ## 🤝 기여하기
 
-1. 이 저장소를 포크합니다
-2. 새로운 브랜치를 생성합니다
-3. 변경사항을 커밋합니다
-4. 브랜치에 푸시합니다
-5. Pull Request를 생성합니다
+1. 이 저장소를 포크합니다.
+2. 새로운 브랜치를 생성합니다.
+3. 변경사항을 커밋합니다.
+4. 브랜치에 푸시합니다.
+5. Pull Request를 생성합니다.
 
 ## 📝 라이선스
 
-[라이선스 종류] - 자세한 내용은 [LICENSE](https://opensource.org/license/mit) 파일을 참조하세요.
+[MIT License](https://opensource.org/license/mit) - 자세한 내용은 LICENSE 파일을 참조하세요.
 
 ## 🙏 감사의 말
 
@@ -75,3 +90,6 @@ vim ~/.zshrc
 - [fzf](https://github.com/junegunn/fzf)
 - [bat](https://github.com/sharkdp/bat)
 - [lsd](https://github.com/lsd-rs/lsd)
+- [Pathogen](https://github.com/tpope/vim-pathogen)
+- [vim-indent-guides](https://github.com/preservim/vim-indent-guides)
+- [JetBrainsMono Nerd Font](https://www.nerdfonts.com/)
